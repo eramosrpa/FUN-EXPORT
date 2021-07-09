@@ -49,7 +49,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -90,27 +90,28 @@
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="datatable" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="lista" />
+      <Variable x:TypeArguments="x:String" Name="ruta" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Point x:Key="ShapeLocation">280,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 180,107.5 180,124.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">310,77.5 310,107.5 160,107.5 160,140</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">80,124.5</av:Point>
+          <av:Point x:Key="ShapeLocation">70,224.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">180,175.5 180,254.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">170,275.5 170,305.5 180,305.5 180,314.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\jparra\OneDrive\RPA\FUN\FUN VEHICULO 1.xlsm">
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[ruta+&quot;FUN VEHICULO 1.xlsm&quot;]">
         <ui:ExcelApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
             <ActivityAction.Argument>
@@ -145,18 +146,18 @@
         <FlowStep x:Name="__ReferenceID0">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">80,254.5</av:Point>
+              <av:Point x:Key="ShapeLocation">80,314.5</av:Point>
               <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">180,305.5 180,417</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">180,365.5 180,417</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,6300" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,6152" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,6894" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="tipotraspaso" />
                     <Variable x:TypeArguments="x:String" Name="apoderado" />
@@ -209,7 +210,7 @@
                       <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_2" />
                     </If.Then>
                   </If>
-                  <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\Users\jparra\OneDrive \RPA\FUN\PLACAS\&quot;+placa]" />
+                  <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="484,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[ruta+&quot;PLACAS\&quot;+placa]" />
                   <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="APODERADO" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="484,64" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
                     <ui:GetRowItem.Value>
                       <OutArgument x:TypeArguments="x:String">[apoderado]</OutArgument>
@@ -351,10 +352,10 @@
                       <OutArgument x:TypeArguments="x:String">[autoridadTransito]</OutArgument>
                     </ui:GetRowItem.Value>
                   </ui:GetRowItem>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\CLAUSULA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_21" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\CLAUSULA.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\CLAUSULA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_21" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\CLAUSULA.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -405,7 +406,7 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\CLAUSULA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_21">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\CLAUSULA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_21">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -439,15 +440,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\DECLARACION INDETERMINADO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_22" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\DECLARACION INDETERMINADO.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\DECLARACION INDETERMINADO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_22" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\DECLARACION INDETERMINADO.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\DECLARACION INDETERMINADO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_22">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\DECLARACION INDETERMINADO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_22">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -479,15 +480,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO A LOCATARIO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_23" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\MANDATO A LOCATARIO.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO A LOCATARIO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_23" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\MANDATO A LOCATARIO.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO A LOCATARIO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_23">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO A LOCATARIO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_23">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -514,7 +515,7 @@
                           <p:WordSetBookmarkContent BookmarkName="REPRESENTANTE" BookmarkText="[representante]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_356" />
                           <p:WordSetBookmarkContent BookmarkName="REPRESENTANTE1" BookmarkText="[representante]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_357" />
                           <p:WordSetBookmarkContent BookmarkName="VIN" BookmarkText="[vin]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_358" />
-                          <p:WordSetBookmarkContent BookmarkName="CLASE" BookmarkText="[clase]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_359" />
+                          <p:WordSetBookmarkContent BookmarkName="CLASE" BookmarkText="[clase]" DisplayName="Set Bookmark Content" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="WordSetBookmarkContent_359" />
                         </Sequence>
                       </ActivityAction>
                     </p:WordApplicationScope.Body>
@@ -525,15 +526,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO BANCOLOMBIA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_24" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\MANDATO BANCOLOMBIA.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO BANCOLOMBIA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_24" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\MANDATO BANCOLOMBIA.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO BANCOLOMBIA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_24">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO BANCOLOMBIA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_24">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -568,15 +569,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO PERSONA JURIDICA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_25" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\MANDATO PERSONA JURIDICA.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO PERSONA JURIDICA.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_25" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\MANDATO PERSONA JURIDICA.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO PERSONA JURIDICA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_25">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO PERSONA JURIDICA.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_25">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -614,7 +615,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO PERSONA NATURAL.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_26" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\MANDATO PERSONA NATURAL.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO PERSONA NATURAL.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_26" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\MANDATO PERSONA NATURAL.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -622,16 +623,16 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\MANDATO PERSONA NATURAL.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_26">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\MANDATO PERSONA NATURAL.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_26">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2004" sap2010:WorkflowViewState.IdRef="Sequence_41">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -671,15 +672,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A LOCATARIO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_27" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\TRANSFERENCIA A LOCATARIO.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A LOCATARIO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_27" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\TRANSFERENCIA A LOCATARIO.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A LOCATARIO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_27">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A LOCATARIO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_27">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -736,15 +737,15 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A TERCERO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CopyFile_28" Overwrite="True" Path="C:\Users\jparra\OneDrive\RPA\FUN\DOCUMENTOS\TRANSFERENCIA A TERCERO.docx">
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ruta+&quot;PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A TERCERO.docx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="CopyFile_28" Overwrite="True" Path="[ruta+&quot;DOCUMENTOS\TRANSFERENCIA A TERCERO.docx&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CopyFile>
-                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A TERCERO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_28">
+                  <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[ruta+&quot;PLACAS\&quot;+placa+&quot;\TRANSFERENCIA A TERCERO.docx&quot;]" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_28">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
@@ -816,7 +817,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </p:WordApplicationScope>
-                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,965" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="C:\Users\jparra\OneDrive\RPA\FUN\FUN VEHICULO 1.xlsm">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,965" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="[ruta+&quot;FUN VEHICULO 1.xlsm&quot;]">
                     <ui:ExcelApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                         <ActivityAction.Argument>
@@ -851,7 +852,7 @@
                                 <InArgument x:TypeArguments="scg:List(x:String)">[New List(of String)]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,247" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.GetFiles(&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa)]">
+                            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,247" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.GetFiles(ruta+&quot;PLACAS\&quot;+placa)]">
                               <ui:ForEach.Body>
                                 <ActivityAction x:TypeArguments="x:String">
                                   <ActivityAction.Argument>
@@ -896,13 +897,13 @@
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_48">
+              <Sequence sap:VirtualizedContainerService.HintSize="899,1149" sap2010:WorkflowViewState.IdRef="Sequence_48">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="857,1057" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" WorkbookPath="C:\Users\jparra\OneDrive\RPA\FUN\FUN VEHICULO 1.xlsm">
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="857,1057" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" WorkbookPath="[ruta+&quot;FUN VEHICULO 1.xlsm&quot;]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
@@ -950,19 +951,19 @@
                                     <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_1" />
                                   </If.Then>
                                   <If.Else>
-                                    <uascw:CompressFiles CompressedFileInfo="{x:Null}" Password="{x:Null}" CodePage="Default" CompressedFileName="[&quot;C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\&quot;+placa2+&quot;\&quot;+placa2+&quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" sap:VirtualizedContainerService.HintSize="444,257" sap2010:WorkflowViewState.IdRef="CompressFiles_5" OverrideExistingFile="True">
+                                    <uascw:CompressFiles CompressedFileInfo="{x:Null}" Password="{x:Null}" CodePage="Default" CompressedFileName="[ruta+&quot;PLACAS\&quot;+placa2+&quot;\&quot;+placa2+&quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" sap:VirtualizedContainerService.HintSize="444,257" sap2010:WorkflowViewState.IdRef="CompressFiles_5" OverrideExistingFile="True">
                                       <uascw:CompressFiles.ContentToArchive>
                                         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="16">
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\CLAUSULA.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\DECLARACION INDETERMINADO.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\"+placa2+".pdf"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\"+placa2+".xlsx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\MANDATO A LOCATARIO.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\MANDATO BANCOLOMBIA.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\MANDATO PERSONA JURIDICA.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\MANDATO PERSONA NATURAL.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\TRANSFERENCIA A LOCATARIO.docx"]</InArgument>
-                                          <InArgument x:TypeArguments="x:String">["C:\Users\jparra\OneDrive\RPA\FUN\PLACAS\"+placa2+"\TRANSFERENCIA A TERCERO.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\CLAUSULA.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\DECLARACION INDETERMINADO.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\"+placa2+".pdf"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\"+placa2+".xlsx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\MANDATO A LOCATARIO.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\MANDATO BANCOLOMBIA.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\MANDATO PERSONA JURIDICA.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\MANDATO PERSONA NATURAL.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\TRANSFERENCIA A LOCATARIO.docx"]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[ruta+"PLACAS\"+placa2+"\TRANSFERENCIA A TERCERO.docx"]</InArgument>
                                         </scg:List>
                                       </uascw:CompressFiles.ContentToArchive>
                                       <sap:WorkflowViewStateService.ViewState>
@@ -996,5 +997,25 @@
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
+    <FlowStep x:Name="__ReferenceID3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">29,140</av:Point>
+          <av:Size x:Key="ShapeSize">262,60</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">160,200 160,224.5 170,224.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[ruta]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">C:\Users\jparra\OneDrive\RPA\FUN\</InArgument>
+        </Assign.Value>
+      </Assign>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID2</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
   </Flowchart>
 </Activity>
